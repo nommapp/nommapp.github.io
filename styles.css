@@ -293,3 +293,31 @@ body{
   .phone-bottom-left{ order:3; place-self:center; transform:none; }
   .hero-bottom-right{ order:4; place-self:auto; text-align:right; }
 }
+
+/* === Prevent horizontal scrolling (모바일 좌우 스크롤 잠금) === */
+html, body { overflow-x: hidden; }
+
+/* 이미지가 영역을 넘지 않게 */
+img, svg { max-width: 100%; height: auto; }
+
+/* 링크 스타일 (QR 아래 URL) */
+.url a {
+  color: var(--muted);
+  text-decoration: none;
+}
+.url a:hover { text-decoration: underline; }
+
+/* 모바일에서 내부 padding까지 고려해 100vw를 넘지 않도록 */
+@media (max-width: 680px){
+  /* 섹션 가로 오버플로우 방지 */
+  .section{ 
+    overflow-x: hidden;
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+  /* hero 프레임이 섹션 padding과 합쳐 100vw를 초과하지 않도록 */
+  .hero-frame{ width: 100%; }
+
+  /* 휴대폰 이미지가 부모를 넘지 않도록 한번 더 안전장치 */
+  .phone{ max-width: 100%; }
+}
