@@ -209,7 +209,7 @@ body{
   flex-direction: column;              /* 세로 스택 */
   align-items: center;                 /* 박스 자체를 중앙 */
   gap: 22px;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 .steps{
   width: 100%;
@@ -247,7 +247,7 @@ body{
   /* 섹션 자체를 화면 중앙으로 */
   margin-left: auto;
   margin-right: auto;
-  margin-top: 60px;
+  margin-top: 20px;
 
   /* 내부 아이템들을 중앙으로 정렬 */
   display: flex;
@@ -294,8 +294,6 @@ body{
   .hero-bottom-right{ order:4; place-self:auto; text-align:right; }
 }
 
-/* === Prevent horizontal scrolling (모바일 좌우 스크롤 잠금) === */
-html, body { overflow-x: hidden; }
 
 /* 이미지가 영역을 넘지 않게 */
 img, svg { max-width: 100%; height: auto; }
@@ -306,18 +304,3 @@ img, svg { max-width: 100%; height: auto; }
   text-decoration: none;
 }
 .url a:hover { text-decoration: underline; }
-
-/* 모바일에서 내부 padding까지 고려해 100vw를 넘지 않도록 */
-@media (max-width: 680px){
-  /* 섹션 가로 오버플로우 방지 */
-  .section{ 
-    overflow-x: hidden;
-    padding-left: max(16px, env(safe-area-inset-left));
-    padding-right: max(16px, env(safe-area-inset-right));
-  }
-  /* hero 프레임이 섹션 padding과 합쳐 100vw를 초과하지 않도록 */
-  .hero-frame{ width: 100%; }
-
-  /* 휴대폰 이미지가 부모를 넘지 않도록 한번 더 안전장치 */
-  .phone{ max-width: 100%; }
-}
